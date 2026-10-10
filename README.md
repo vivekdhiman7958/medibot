@@ -172,4 +172,4 @@ data/
 
 ## License and data attribution
 
-No project license or dataset license has been verified in this repository. Before publishing or redistributing, choose and add a project license, confirm the Kaggle/MID dataset licenses and attribution requirements, and ensure downloaded datasets are permitted to be committed. Do not imply that the datasets are official, comprehensive, current, or clinically validated.
+No project license or dataset license has been verified in this repository.
