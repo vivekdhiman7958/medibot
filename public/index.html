@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f5">
+    <title>MediBot — medicine information</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="layout">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="MediBot home"><span class="brand-mark">+</span> MediBot</a>
+        <span class="status"><span class="status-dot"></span> Medicine assistant</span>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">CLEAR INFORMATION. SAFER CHOICES.</p>
+        <h1 id="page-title">A little clarity,<br><em>when you need it.</em></h1>
+        <p class="intro">Compare medicine prices, check exact-composition matches and explore general medicine information.</p>
+      </section>
+
+      <section id="disclaimer-card" class="disclaimer-card" aria-labelledby="disclaimer-heading">
+        <div class="disclaimer-icon" aria-hidden="true">i</div>
+        <div>
+          <h2 id="disclaimer-heading">A note before we begin</h2>
+          <p id="disclaimer-text">MediBot provides general medicine information, not medical advice. It cannot diagnose or prescribe. Always consult a doctor or pharmacist.</p>
+        </div>
+        <button id="acknowledge" class="button button-primary">I understand</button>
+      </section>
+
+      <section class="chat-card" aria-label="MediBot chat">
+        <div class="chat-heading">
+          <div class="avatar">M</div>
+          <div><h2>MediBot</h2><p id="chat-status">A careful companion for medicine questions</p></div>
+          <span class="secure-label">SESSION CHAT</span>
+        </div>
+        <div id="messages" class="messages" aria-live="polite" aria-relevant="additions">
+          <article class="message assistant-message">
+            <p>Hello. I can look up catalogue entries and, when web search is configured, find general information from trusted medical reference sites. I can’t diagnose or prescribe.</p>
+          </article>
+        </div>
+        <div class="suggestions" aria-label="Example questions">
+          <button class="suggestion" data-message="Compare the catalogue price for Zincovit Tablet">Compare catalogue price</button>
+          <button class="suggestion" data-message="Find general information about vitamin D from trusted medical sources">Search medical sources</button>
+          <button class="suggestion" data-message="What information is available for Zincovit Tablet?">Check catalogue</button>
+        </div>
+        <form id="chat-form" class="composer">
+          <label class="visually-hidden" for="message-input">Your medicine question</label>
+          <input id="message-input" name="message" type="text" maxlength="2000" placeholder="Ask about a medicine..." autocomplete="off" disabled>
+          <button id="send-button" class="send-button" type="submit" aria-label="Send message" disabled>↑</button>
+        </form>
+        <p class="privacy-note">Chat messages stay in server memory for this session, not in the medicine database. If web search is enabled, general search queries are sent to Tavily. Avoid sharing personal health details.</p>
+      </section>
+      <footer>Catalogue prices are source snapshots, not live offers. Internet results are general information, not a diagnosis or medical advice.</footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# Dependencies and local environments
+node_modules/
+.venv/
+.env
+.env.*
+!.env.example
+
+# Local databases and SQLite sidecar files
+data/*.sqlite
+data/*.sqlite-*
+
+# Downloaded or generated datasets (do not publish without license review)
+/data/raw/*
+!/data/raw/.gitkeep
+/data/clean/*
+!/data/clean/.gitkeep
+
+# Build, test, and editor output
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db

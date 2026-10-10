@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MediBot — Project Presentation</title>
+<style>
+@page { size: 13.333in 7.5in; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #0c1714; color: #f4f7f4; font-family: "Segoe UI", Arial, sans-serif; }
+.slide { position: relative; width: 13.333in; height: 7.5in; padding: .64in .82in; overflow: hidden; page-break-after: always; background: #f7faf7; color: #17352c; }
+.slide:last-child { page-break-after: auto; }
+.slide::before { position: absolute; top: 0; left: 0; width: .11in; height: 100%; background: #46b18a; content: ""; }
+.dark { color: #f4f7f4; background: #10241e; }
+.dark::before { background: #75ddb0; }
+.kicker { margin: 0 0 .15in; color: #258263; font-size: 10pt; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; }
+.dark .kicker { color: #82d9b2; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: .19in; font-size: 43pt; line-height: 1.04; letter-spacing: -1.7px; }
+h2 { margin-bottom: .19in; font-size: 28pt; line-height: 1.12; letter-spacing: -.7px; }
+h3 { margin-bottom: .08in; font-size: 14pt; }
+p { font-size: 13pt; line-height: 1.5; }
+.sub { max-width: 8.8in; color: #b8cbc1; font-size: 17pt; line-height: 1.45; }
+.brand { display: flex; align-items: center; gap: 12px; margin-bottom: .72in; font-size: 15pt; font-weight: 700; letter-spacing: .3px; }
+.plus { display: grid; width: .42in; height: .42in; place-items: center; border-radius: 12px; background: #258263; color: white; font-size: 27pt; font-weight: 400; }
+.dark .plus { background: #75ddb0; color: #10241e; }
+.cover-title { max-width: 9in; font-size: 48pt; }
+.cover-title span { color: #82d9b2; }
+.cover-meta { position: absolute; bottom: .58in; left: .82in; color: #a8bdb2; font-size: 10pt; letter-spacing: .5px; }
+.orb { position: absolute; right: .7in; bottom: .55in; width: 3.6in; height: 3.6in; border: 1px solid #75ddb044; border-radius: 50%; }
+.orb::before, .orb::after { position: absolute; border: 1px solid #75ddb044; border-radius: 50%; content: ""; }
+.orb::before { inset: .38in; }
+.orb::after { inset: .78in; background: radial-gradient(circle, #75ddb022, transparent 67%); }
+.grid { display: grid; gap: .16in; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+.card { padding: .2in .22in; border: 1px solid #dce9df; border-radius: 14px; background: #fff; }
+.dark .card { border-color: #315348; background: #19372e; color: #eef5ef; }
+.card p { margin: 0; color: #64786e; font-size: 10.5pt; line-height: 1.4; }
+.dark .card p { color: #b3c9bd; }
+.tag { display: inline-block; margin-bottom: .1in; color: #268261; font-size: 9pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.dark .tag { color: #82d9b2; }
+.stat { margin-bottom: .05in; color: #1e765a; font-size: 30pt; font-weight: 750; letter-spacing: -1px; }
+.dark .stat { color: #82d9b2; }
+.small { color: #71847a; font-size: 10pt; }
+.dark .small { color: #a8bdb2; }
+.flow { display: flex; align-items: stretch; justify-content: space-between; gap: .09in; margin: .35in 0 .23in; }
+.step { flex: 1; padding: .16in .13in; border: 1px solid #d8e7db; border-radius: 12px; background: #fff; text-align: center; }
+.step b { display: block; margin-bottom: .07in; color: #205d47; font-size: 12pt; }
+.step span { display: block; color: #6b7e73; font-size: 9pt; line-height: 1.35; }
+.arrow { align-self: center; color: #48a27e; font-size: 21pt; }
+.note { padding: .17in .2in; border-left: 4px solid #d4a449; border-radius: 6px; background: #fff6e5; color: #624d27; font-size: 10.5pt; line-height: 1.45; }
+.dark .note { border-color: #e5bb69; background: #423921; color: #f4e5bd; }
+.list { margin: .08in 0 0; padding-left: 19px; }
+.list li { margin: 0 0 .09in; color: #526a5f; font-size: 12pt; line-height: 1.4; }
+.dark .list li { color: #c0d1c7; }
+.footer { position: absolute; right: .82in; bottom: .34in; left: .82in; display: flex; justify-content: space-between; color: #809389; font-size: 8pt; }
+.dark .footer { color: #8ca79a; }
+.pill { display: inline-block; margin: .04in .04in .04in 0; padding: .07in .12in; border: 1px solid #d4e4d9; border-radius: 99px; color: #436e59; font-size: 9pt; font-weight: 600; }
+.dark .pill { border-color: #456c5d; color: #c1e2d0; }
+.score { display: flex; align-items: center; gap: .2in; margin: .16in 0; padding: .17in .22in; border-radius: 13px; background: #eaf4ec; }
+.score strong { min-width: 1.1in; color: #1d7658; font-size: 20pt; }
+.score span { color: #526a5f; font-size: 11pt; }
+.close { margin-top: .45in; color: #82d9b2; font-size: 19pt; font-weight: 700; }
+@media print { .slide { break-after: page; } .slide:last-child { break-after: auto; } }
+</style>
+</head>
+<body>
+<section class="slide dark">
+  <div class="brand"><span class="plus">+</span> MEDIBOT</div>
+  <p class="kicker">PROJECT PRESENTATION · OCTOBER 2026</p>
+  <h1 class="cover-title">Clearer medicine information.<br><span>Safer conversations.</span></h1>
+  <p class="sub">A safety-first conversational prototype for catalogue lookup, price snapshots, and sourced general health information.</p>
+  <div class="orb"></div>
+  <div class="cover-meta">Bun · TypeScript · SQLite · Groq · Tavily</div>
+  <div class="footer"><span>MEDIBOT · PROTOTYPE</span><span>01</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">01 · THE IDEA</p>
+  <h2>Useful information, with clear boundaries</h2>
+  <p style="max-width:9.4in;color:#60766a">People often need to find a product in a large catalogue, understand what data is actually available, and know where an answer came from. MediBot brings those steps into a conversational interface.</p>
+  <div class="grid three" style="margin-top:.28in">
+    <div class="card"><span class="tag">Find</span><h3>Catalogue lookup</h3><p>Search imported product names and pack sizes from a local SQLite catalogue.</p></div>
+    <div class="card"><span class="tag">Compare</span><h3>Price snapshots</h3><p>Show source-provided values and label their origin—not as a live pharmacy offer.</p></div>
+    <div class="card"><span class="tag">Explain</span><h3>Sourced answers</h3><p>Optional medical-reference web search returns clickable source links.</p></div>
+  </div>
+  <div class="note" style="margin-top:.25in"><b>Product principle:</b> an empty or incomplete dataset is not a reason to invent facts. Say what is missing, preserve provenance, and keep medical decisions with qualified professionals.</div>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>02</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">02 · REQUEST JOURNEY</p>
+  <h2>From a question to a bounded answer</h2>
+  <div class="flow">
+    <div class="step"><b>1 · Ask</b><span>User acknowledges the medical disclaimer and sends a question.</span></div><span class="arrow">›</span>
+    <div class="step"><b>2 · Guard</b><span>Server checks known restricted terms and high-signal indirect phrasing.</span></div><span class="arrow">›</span>
+    <div class="step"><b>3 · Retrieve</b><span>Groq can call guarded SQLite tools; Tavily is optional for general references.</span></div><span class="arrow">›</span>
+    <div class="step"><b>4 · Check</b><span>Generated text is checked for restricted names and diagnosis language.</span></div><span class="arrow">›</span>
+    <div class="step"><b>5 · Cite</b><span>Web-based answers display HTTPS source links and a general-info notice.</span></div>
+  </div>
+  <div class="grid two" style="margin-top:.25in">
+    <div class="card"><span class="tag">Local first</span><p>Medicine records and price snapshots are read from SQLite. Prices are never sourced from model memory.</p></div>
+    <div class="card"><span class="tag">Web as fallback</span><p>When enabled, general reference search is domain-limited. It is not a pharmacy scraper or a source of live prices.</p></div>
+  </div>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>03</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">03 · BUILD</p>
+  <h2>A small, understandable stack</h2>
+  <div class="grid two">
+    <div class="card"><span class="tag">Runtime &amp; language</span><h3>Bun + TypeScript</h3><p>Runs the HTTP server, installs project tooling, and executes the TypeScript application.</p></div>
+    <div class="card"><span class="tag">Persistence</span><h3>SQLite</h3><p>Stores medicine records, snapshot prices, restriction terms, health info, and disclaimer acknowledgement timestamps.</p></div>
+    <div class="card"><span class="tag">Language model</span><h3>Groq · gpt-oss-120b</h3><p>Interprets questions and formats tool results. Code and database—not the model—own guard decisions.</p></div>
+    <div class="card"><span class="tag">Reference search</span><h3>Tavily (optional)</h3><p>Finds general medical-reference excerpts and returns the source links shown to the user.</p></div>
+  </div>
+  <div style="margin-top:.27in">
+    <span class="pill">Vanilla HTML</span><span class="pill">CSS</span><span class="pill">Browser JavaScript</span><span class="pill">JSON HTTP API</span><span class="pill">Bun test</span>
+  </div>
+  <p class="small" style="margin-top:.19in">No separate frontend framework, cloud database, pharmacy partner integration, or deployed service is included in this prototype.</p>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>04</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">04 · DATA REALITY</p>
+  <h2>What the current dataset can—and can’t—say</h2>
+  <div class="grid three">
+    <div class="card"><div class="stat">15,948</div><h3>Imported products</h3><p>Distinct product rows loaded from the 1mg Kaggle CSV snapshot.</p></div>
+    <div class="card"><div class="stat">11,648</div><h3>Price entries</h3><p>Rows with a parseable source price. They are historical snapshot values, not live offers.</p></div>
+    <div class="card"><div class="stat">0</div><h3>Verified compositions</h3><p>The CSV has no ingredient field, so exact-composition alternatives are unavailable.</p></div>
+  </div>
+  <div class="grid two" style="margin-top:.19in">
+    <div class="card"><h3>Available in the CSV</h3><p>Product name, pack size, rating count, rating, price, and MRP.</p></div>
+    <div class="card"><h3>Not supplied by this CSV</h3><p>Verified ingredients, manufacturer, stock, delivery ETA, or capture date.</p></div>
+  </div>
+  <div class="note" style="margin-top:.18in">The source price exceeds the source MRP in many imported records. Both original columns are preserved without guessing what the labels mean.</div>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>05</span></div>
+</section>
+
+<section class="slide dark">
+  <p class="kicker">05 · SAFETY BY DESIGN</p>
+  <h2>Guardrails are code paths—not model promises</h2>
+  <div class="grid two" style="margin-top:.22in">
+    <div class="card"><span class="tag">Input guard</span><h3>Before the LLM</h3><p>Known restricted terms and selected indirect phrases can return the mandated block response before any model call.</p></div>
+    <div class="card"><span class="tag">Tool guards</span><h3>Before retrieval</h3><p>Catalogue lookups re-check medicine terms. Search uses a limited domain allow-list and only one call per answer.</p></div>
+    <div class="card"><span class="tag">Output guard</span><h3>After generation</h3><p>Generated answers are checked for known restricted names and common diagnosis phrasing, with limited rewrites.</p></div>
+    <div class="card"><span class="tag">User notice</span><h3>Source &amp; role</h3><p>Web answers show links and say the information is general—not diagnosis or treatment advice.</p></div>
+  </div>
+  <div class="note" style="margin-top:.2in"><b>Prototype limitation:</b> the restricted-term list currently contains only a small demonstration sample. It is not a complete, official Schedule H list; do not rely on this app for medication decisions.</div>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>06</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">06 · NEXT MILESTONES</p>
+  <h2>From working prototype to trustworthy data product</h2>
+  <div class="grid two">
+    <div>
+      <div class="score"><strong>01</strong><span>Verify the Kaggle source license, source URL, and intended use.</span></div>
+      <div class="score"><strong>02</strong><span>Acquire an authoritative restricted-drug source and review brand/ingredient mappings.</span></div>
+      <div class="score"><strong>03</strong><span>Import MID workbook data only after inspecting columns, overlap, license, and provenance.</span></div>
+      <div class="score"><strong>04</strong><span>Validate prices, composition normalization, duplicate handling, and edge-case tests.</span></div>
+    </div>
+    <div>
+      <div class="score"><strong>05</strong><span>Obtain an approved pharmacy price feed before claiming live comparisons.</span></div>
+      <div class="score"><strong>06</strong><span>Measure false-positive and missed-restricted test cases; document residual risk.</span></div>
+      <div class="score"><strong>07</strong><span>Add source dates, license records, audit traces, and operational monitoring.</span></div>
+      <div class="note" style="margin-top:.2in"><b>Data collection rule:</b> no pharmacy scraping until the site’s rules and permission allow it.</div>
+    </div>
+  </div>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>07</span></div>
+</section>
+
+<section class="slide dark">
+  <p class="kicker">MEDIBOT · WRAP-UP</p>
+  <h2>Helpful answers start with honest evidence.</h2>
+  <p class="sub">A practical prototype today; a clear, testable path toward better data and stronger safety.</p>
+  <div style="margin-top:.35in"><span class="pill">Catalogue-backed</span><span class="pill">Source-aware</span><span class="pill">Guarded</span><span class="pill">Not a clinician</span></div>
+  <p class="close">Thank you</p>
+  <div class="footer"><span>MEDIBOT · PROJECT PRESENTATION</span><span>08</span></div>
+</section>
+</body>
+</html>
